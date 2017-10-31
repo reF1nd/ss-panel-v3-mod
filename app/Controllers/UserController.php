@@ -79,13 +79,11 @@ class UserController extends BaseController
 
 
         return $this->view()->assign("ssr_sub_token", $ssr_sub_token)->assign("router_token", $router_token)
-                ->assign("router_token_without_mu", $router_token_without_mu)->assign("acl_token", $acl_token)
-                ->assign('ann', $Ann)->assign('geetest_html', $GtSdk)->assign("ios_token", $ios_token)
-                ->assign('enable_duoshuo', Config::get('enable_duoshuo'))->assign('duoshuo_shortname', Config::get('duoshuo_shortname'))
-                ->assign("user", $this->user)->registerClass("URL", "App\Utils\URL")->assign('baseUrl', Config::get('baseUrl'))->display('user/index.tpl');
+            ->assign("router_token_without_mu", $router_token_without_mu)->assign("acl_token", $acl_token)
+            ->assign('ann', $Ann)->assign('geetest_html', $GtSdk)->assign("ios_token", $ios_token)
+            ->assign('enable_duoshuo', Config::get('enable_duoshuo'))->assign('duoshuo_shortname', Config::get('duoshuo_shortname'))
+            ->assign("user", $this->user)->registerClass("URL", "App\Utils\URL")->assign('baseUrl', Config::get('baseUrl'))->display('user/index.tpl');
     }
-
-
 
     public function lookingglass($request, $response, $args)
     {
@@ -469,7 +467,7 @@ class UserController extends BaseController
                 if ((($user->class>=$node->node_class&&($user->node_group==$node->node_group||$node->node_group==0))||$user->is_admin)&&($node->node_bandwidth_limit==0||$node->node_bandwidth<$node->node_bandwidth_limit)) {
                     return $this->view()->assign('node', $node)->assign('user', $user)->assign('mu', $mu)->assign('relay_rule_id', $relay_rule_id)->registerClass("URL", "App\Utils\URL")->display('user/nodeinfo.tpl');
                 }
-            break;
+                break;
 
             case 1:
                 if ($user->class>=$node->node_class&&($user->node_group==$node->node_group||$node->node_group==0)) {
@@ -479,7 +477,7 @@ class UserController extends BaseController
 
                     return $this->view()->assign('json_show', $json_show)->display('user/nodeinfovpn.tpl');
                 }
-            break;
+                break;
 
             case 2:
                 if ($user->class>=$node->node_class&&($user->node_group==$node->node_group||$node->node_group==0)) {
@@ -490,7 +488,7 @@ class UserController extends BaseController
                     return $this->view()->assign('json_show', $json_show)->display('user/nodeinfossh.tpl');
                 }
 
-            break;
+                break;
 
 
             case 3:
@@ -504,7 +502,7 @@ class UserController extends BaseController
                     return $this->view()->assign('json_show', $json_show)->display('user/nodeinfopac.tpl');
                 }
 
-            break;
+                break;
 
             case 4:
                 if ($user->class>=$node->node_class&&($user->node_group==$node->node_group||$node->node_group==0)) {
@@ -515,7 +513,7 @@ class UserController extends BaseController
                     return $this->view()->assign('json_show', $json_show)->display('user/nodeinfoapn.tpl');
                 }
 
-            break;
+                break;
 
             case 5:
                 if ($user->class>=$node->node_class&&($user->node_group==$node->node_group||$node->node_group==0)) {
@@ -528,7 +526,7 @@ class UserController extends BaseController
                 }
 
 
-            break;
+                break;
 
             case 6:
                 if ($user->class>=$node->node_class&&($user->node_group==$node->node_group||$node->node_group==0)) {
@@ -546,7 +544,7 @@ class UserController extends BaseController
                 }
 
 
-            break;
+                break;
 
             case 7:
                 if ($user->class>=$node->node_class&&($user->node_group==$node->node_group||$node->node_group==0)) {
@@ -560,7 +558,7 @@ class UserController extends BaseController
                 }
 
 
-            break;
+                break;
 
             case 8:
                 if ($user->class>=$node->node_class&&($user->node_group==$node->node_group||$node->node_group==0)) {
@@ -574,7 +572,7 @@ class UserController extends BaseController
                 }
 
 
-            break;
+                break;
 
 
             case 10:
@@ -676,9 +674,13 @@ class UserController extends BaseController
             }
         }
 
-
-
-        return $this->view()->assign("userip",$userip)->assign("userloginip", $userloginip)->assign("paybacks", $paybacks)->display('user/profile.tpl');
+        $uid = time().rand(1, 10000) ;
+        if (Config::get('enable_geetest_checkin') == 'true') {
+            $GtSdk = Geetest::get($uid);
+        } else {
+            $GtSdk = null;
+        }
+        return $this->view()->assign('geetest_html', $GtSdk)->assign("user", $this->user)->registerClass("URL", "App\Utils\URL")->assign("userip",$userip)->assign("userloginip", $userloginip)->assign("paybacks", $paybacks)->display('user/profile.tpl');
     }
 
 
@@ -712,7 +714,7 @@ class UserController extends BaseController
         $config_service = new Config();
 
         return $this->view()->assign('user', $this->user)->assign('themes', $themes)->assign('isBlock', $isBlock)->assign('Block', $Block)->assign('bind_token', $bind_token)->assign('telegram_bot', Config::get('telegram_bot'))->assign('config_service', $config_service)
-                    ->registerClass("URL", "App\Utils\URL")->display('user/edit.tpl');
+            ->registerClass("URL", "App\Utils\URL")->display('user/edit.tpl');
     }
 
 
