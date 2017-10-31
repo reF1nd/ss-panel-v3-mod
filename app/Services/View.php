@@ -25,6 +25,7 @@ class View
         // add config
         $smarty->assign('config', Config::getPublicConfig());
         $smarty->assign('user', Auth::getUser());
+        $smarty->assign('theme', $theme);
         return $smarty;
     }
 }
