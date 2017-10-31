@@ -12,9 +12,13 @@ cd shadowsocks
 git remote add izhangxm https://github.com/izhangxm/ss-panel-v3-mod.git 
 
 # 检出
-git fetch origin mstheme
+git fetch izhangxm mstheme
 
 # 切换分支
 git checkout --track izhangxm/mstheme
 ```
-**修改`.config.php`文件的主题类型为`ms`**刷新浏览器即可看到效果
+
+### 善后
+- 修改`.config.php`文件的主题类型为`ms`,
+- 删除文件夹`storage/framework`,
+- 刷新浏览器即可看到效果
