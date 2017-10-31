@@ -162,6 +162,8 @@
 
                         <div class="clearfix">
                             <p class="margin-no-top pull-left"><a class="btn btn-flat btn-brand waves-attach"
+                                                                  href="/">回到首页</a></p>
+                            <p class="margin-no-top pull-left"><a class="btn btn-flat btn-brand waves-attach"
                                                                   href="/password/reset">忘记密码</a></p>
                             <p class="margin-no-top pull-right"><a class="btn btn-flat btn-brand waves-attach"
                                                                    href="/auth/register">注册个帐号</a></p>

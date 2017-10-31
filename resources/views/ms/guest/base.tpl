@@ -12,5 +12,5 @@
             margin-top:0px;
         }
     </style>
-
+    {$header=false}
 {/block}

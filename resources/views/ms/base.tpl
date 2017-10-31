@@ -241,6 +241,15 @@
             margin:0 16px;
             margin-top: 16px;
         }
+        .box_section{
+            background: #fff;
+            -webkit-border-radius: 5px;
+            -moz-border-radius: 5px;
+            border-radius: 5px;
+        }
+        .min-height-400{
+            min-height:400px;
+        }
         .min-height-450{
              min-height:450px;
          }
@@ -256,15 +265,16 @@
         .border-radius{
             border-radius:5px;
         }
-
-
     </style>
+    {*设置默认header*}
+    {$header=true}
     {block name='css'}{/block}
+
     <!-- favicon -->
     <!-- ... -->
 </head>
 <body class="page-orange">
-{if $user->isLogin}
+{if $user->isLogin and  $header}
 
 
 <header class="header header-orange header-transparent ui-header">
