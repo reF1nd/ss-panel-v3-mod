@@ -324,10 +324,12 @@
                             <a class="padding-right-lg waves-attach" href="/user"><span
                                         class="icon icon-lg margin-right">person_pin_circle</span>用户中心</a>
                         </li>
+                        {if $user->isAdmin()}
                         <li>
                             <a class="padding-right-lg waves-attach" href="/admin"><span
                                         class="icon icon-lg margin-right">person_pin</span>管理面板</a>
                         </li>
+                        {/if}
                         <li>
                             <a class="padding-right-lg waves-attach" href="/user/logout"><span
                                         class="icon icon-lg margin-right">exit_to_app</span>登出</a>
