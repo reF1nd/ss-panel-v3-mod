@@ -6,7 +6,7 @@
                 <h1 class="content-heading">汇总</h1>
             </div>
         </div>
-        <div class="container">
+        <div class="container ms-section">
             <section class="content-inner margin-top-no">
                 <div class="row">
                     <div class="col-lg-12 col-md-12">

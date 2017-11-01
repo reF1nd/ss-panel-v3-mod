@@ -5,7 +5,7 @@
                 <h1 class="content-heading">观察窗</h1>
             </div>
         </div>
-        <div class="container">
+        <div class="container ms-section">
             <section class="content-inner margin-top-no">
                 <div class="ui-card-wrap">
                     <div class="row">

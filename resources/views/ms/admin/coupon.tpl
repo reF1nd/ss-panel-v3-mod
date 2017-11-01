@@ -5,7 +5,7 @@
                 <h1 class="content-heading">优惠码</h1>
             </div>
         </div>
-        <div class="container">
+        <div class="container ms-section">
             <section class="content-inner margin-top-no">
 
 

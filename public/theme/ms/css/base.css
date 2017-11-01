@@ -1469,8 +1469,8 @@ template,
 .container {
   margin-right: auto;
   margin-left: auto;
-  padding-right: 16px;
-  padding-left: 16px;
+  /*padding-right: 16px;*/
+  /*padding-left: 16px;*/
 }
 .container:after, .container:before {
   content: "";

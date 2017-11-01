@@ -50,9 +50,6 @@
                             <li><a href="/admin/bought"><i class="icon icon-lg">shopping_cart</i>&nbsp;购买记录</a></li>
                         </ul>
 
-                    <li><a href="/user"><i class="icon icon-lg">person</i>&nbsp;用户中心</a></li>
-                    </li>
-
 
                 </ul>
             </div>

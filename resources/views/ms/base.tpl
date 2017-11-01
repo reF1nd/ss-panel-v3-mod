@@ -202,6 +202,9 @@
             margin: 0px 0;
 
         }
+        .content{
+            min-width: 380px;
+        }
 
         .header {
             background: #3C4051;

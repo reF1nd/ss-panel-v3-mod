@@ -5,13 +5,11 @@
                 <h1 class="content-heading">捐赠公示</h1>
             </div>
         </div>
-        <div class="container">
+        <div class="container ms-section">
             <section class="content-inner margin-top-no">
                 <div class="row">
-
-
                     <div class="col-lg-12 col-md-12">
-                        <div class="card margin-bottom-no">
+                        <div class="card margin-bottom-no ms-section">
                             <div class="card-main">
                                 <div class="card-inner">
                                     <p>您可以在<a href="/user/code">充值界面</a>进行充值，这样就等同于捐赠了。</p>
@@ -58,6 +56,7 @@
                             <div class="card-main">
                                 <div class="card-inner">
                                     <div class="card-inner">
+                                        <p class="card-heading">捐赠列表</p>
                                         <div class="card-table">
                                             <div class="table-responsive">
                                                 {$codes->render()}

@@ -7,7 +7,7 @@
         </div>
         <div class="container">
             <section class="content-inner margin-top-no">
-                <div class="row">
+                <div class="row ms-section">
                     <div class="col-lg-12 col-md-12">
 
                         <div class="card margin-bottom-no">

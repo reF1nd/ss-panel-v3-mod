@@ -8,13 +8,12 @@
             </div>
         </div>
         <div class="container">
-            <section class="content-inner margin-top-no">
-                <div class="row">
-                    <div class="col-lg-12 col-md-12">
-                        <div class="card margin-bottom-no">
+                <div class="row ms-section">
+                    <div class="col-lg-12 col-md-12 padding-no">
+                        <div class="card margin-no ">
                             <div class="card-main">
                                 <div class="card-inner">
-                                    <h4>注意!</h4>
+                                    <h4 class=" margin-top-no">注意!</h4>
                                     <p>请勿在任何地方公开节点地址！</p>
                                     <p>流量比例为0.5即使用1000MB按照500MB流量记录记录结算.</p>
                                     <a href="javascript:void(0);" onClick="urlChange('guide',0,0,0)">如果您不知道如何查看节点的详细信息和二维码，请点我。</a>
@@ -24,8 +23,8 @@
                     </div>
                 </div>
                 <div class="ui-card-wrap">
-                    <div class="row">
-                        <div class="col-lg-12 col-sm-12">
+                    <div class="row ms-section">
+                        <div class="col-lg-12 col-sm-12 padding-no">
                             <div class="card">
                                 <div class="card-main">
                                     <div class="card-inner margin-bottom-no">
@@ -256,7 +255,6 @@
                         </div>
                     </div>
                 </div>
-            </section>
         </div>
     </main>
 {/block}{block name='script'}
