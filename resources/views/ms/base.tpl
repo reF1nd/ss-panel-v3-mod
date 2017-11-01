@@ -211,59 +211,71 @@
             height: 48px;
 
         }
-        @media only screen and (min-width: 992px){
-            #menu_id,.logo_contaniner{
+
+        @media only screen and (min-width: 992px) {
+            #menu_id, .logo_contaniner {
                 display: none;
             }
-            #logo_id{
-                font-weight:bold;
-                font-size:26px;
+
+            #logo_id {
+                font-weight: bold;
+                font-size: 26px;
             }
 
         }
+
         @media only screen and (max-width: 992px) {
-            #logo_id{
+            #logo_id {
                 display: none;
             }
-            .logo_contaniner p{
+
+            .logo_contaniner p {
                 color: #fff;
-                font-size:22px;
+                font-size: 22px;
                 position: fixed;
-                top:0;
+                top: 0;
                 width: 100%;
                 text-align: center;
                 line-height: 100%;
             }
         }
-        .ms-section{
-            border-radius:5px;
+
+        .ms-section {
+            border-radius: 5px;
             background: #FFFFFF;
-            margin:0 16px;
+            margin: 0 16px;
             margin-top: 16px;
         }
-        .box_section{
+
+        .box_section {
             background: #fff;
             -webkit-border-radius: 5px;
             -moz-border-radius: 5px;
             border-radius: 5px;
         }
-        .min-height-400{
-            min-height:400px;
+
+        .min-height-400 {
+            min-height: 400px;
         }
-        .min-height-450{
-             min-height:450px;
-         }
-        .min-height-500{
-            min-height:500px;
+
+        .min-height-450 {
+            min-height: 450px;
         }
-        .min-height-550{
-            min-height:550px;
+
+        .min-height-500 {
+            min-height: 500px;
         }
-        .min-height-600{
-            min-height:600px;
+
+        .min-height-550 {
+            min-height: 550px;
         }
-        .border-radius{
-            border-radius:5px;
+
+        .min-height-600 {
+            min-height: 600px;
+        }
+
+        .border-radius {
+            border-radius: 5px;
         }
     </style>
     {*设置默认header*}
@@ -275,77 +287,84 @@
 </head>
 <body class="page-orange">
 {if $user->isLogin and  $header}
+    <header class="header header-orange header-transparent ui-header">
+        <ul class="nav nav-list pull-left">
+            <div id="menu_id">
+                <a data-toggle="menu" href="#ui_menu">
+                    <span class="icon icon-lg text-white">menu</span>
+                </a>
+            </div>
+        </ul>
+        <ul class="nav nav-list pull-left">
+            <div id="logo_id">
+                <a>
+                    <span class="text-white">{$config['appName']}</span>
+                </a>
 
-
-<header class="header header-orange header-transparent ui-header">
-    <ul class="nav nav-list pull-left">
-        <div id="menu_id">
-            <a data-toggle="menu" href="#ui_menu" >
-                <span class="icon icon-lg text-white">menu</span>
-            </a>
+            </div>
+        </ul>
+        <div class="logo_contaniner">
+            <p id="logo2">
+                {$config['appName']}
+            </p>
         </div>
-    </ul>
-    <ul class="nav nav-list pull-left">
-        <div id="logo_id">
-            <a>
-                <span class="text-white">{$config['appName']}</span>
-            </a>
-
-        </div>
-    </ul>
-    <div class="logo_contaniner">
-        <p id="logo2">
-            {$config['appName']}
-        </p>
-    </div>
-    <ul class="nav nav-list pull-right">
-        <div class="dropdown margin-right">
-            <a class="dropdown-toggle padding-left-no padding-right-no" data-toggle="dropdown">
-
+        <ul class="nav nav-list pull-right">
+            <div class="dropdown margin-right">
                 {if $user->isLogin}
-                <span class="access-hide">{$user->user_name}</span>
-                <span class="avatar avatar-sm"><img alt="alt text for John Smith avatar"
-                                                    src="/theme/{$theme}/images/users/avatar-001.jpg"></span>
-            </a>
-            <ul class="dropdown-menu dropdown-menu-right">
-                <li>
-                    <a class="padding-right-lg waves-attach" href="/user"><span class="icon icon-lg margin-right">account_box</span>用户中心</a>
-                </li>
-                <li>
-                    <a class="padding-right-lg waves-attach" href="/user/logout"><span
-                                class="icon icon-lg margin-right">exit_to_app</span>登出</a>
-                </li>
-            </ul>
-            {else}
-            <span class="access-hide">未登录</span>
-            <span class="avatar avatar-sm"><img alt="alt text for John Smith avatar"
-                                                src="/theme/{$theme}/images/users/avatar-001.jpg"></span>
-            </a>
-            <ul class="dropdown-menu dropdown-menu-right">
-                <li>
-                    <a class="padding-right-lg waves-attach" href="/auth/login"><span class="icon icon-lg margin-right">account_box</span>登录</a>
-                </li>
-                <li>
-                    <a class="padding-right-lg waves-attach" href="/auth/register"><span
-                                class="icon icon-lg margin-right">pregnant_woman</span>注册</a>
-                </li>
-            </ul>
-            {/if}
+                    <a class="dropdown-toggle padding-left-no padding-right-no" data-toggle="dropdown">
+                        <span class="access-hide">{$user->user_name}</span>
+                        <span class="avatar avatar-sm"><img alt="alt text for John Smith avatar"
+                                                            src="/theme/{$theme}/images/users/avatar-001.jpg"></span>
+                    </a>
+                    <ul class="dropdown-menu dropdown-menu-right">
+                        <li>
+                            <a class="padding-right-lg waves-attach" href="/user"><span
+                                        class="icon icon-lg margin-right">person_pin_circle</span>用户中心</a>
+                        </li>
+                        <li>
+                            <a class="padding-right-lg waves-attach" href="/admin"><span
+                                        class="icon icon-lg margin-right">person_pin</span>管理面板</a>
+                        </li>
+                        <li>
+                            <a class="padding-right-lg waves-attach" href="/user/logout"><span
+                                        class="icon icon-lg margin-right">exit_to_app</span>登出</a>
+                        </li>
 
-        </div>
-    </ul>
+                    </ul>
+                {else}
+                    <span class="access-hide">未登录</span>
+                    <span class="avatar avatar-sm"><img alt="alt text for John Smith avatar"
+                                                        src="/theme/{$theme}/images/users/avatar-001.jpg"></span>
+                    </a>
+                    <ul class="dropdown-menu dropdown-menu-right">
+                        <li>
+                            <a class="padding-right-lg waves-attach" href="/auth/login"><span
+                                        class="icon icon-lg margin-right">account_box</span>登录</a>
+                        </li>
+                        <li>
+                            <a class="padding-right-lg waves-attach" href="/auth/register"><span
+                                        class="icon icon-lg margin-right">pregnant_woman</span>注册</a>
+                        </li>
+                    </ul>
+                {/if}
 
-</header>
+            </div>
+        </ul>
+
+    </header>
 {/if}
 {block name='nav'}{/block}
 {block name='main'}{/block}
-
-{*<footer class="ui-footer" style="position:fixed;bottom:10px;">*}
-    {*<div class="container">*}
-        {*&copy; {$config["appName"]}  <a href="/staff">STAFFFFFF</a> {if $config["enable_analytics_code"] == 'true'}{include file='analytics.tpl'}{/if}*}
-    {*</div>*}
-{*</footer>*}
-
+{if $user->isLogin and  $header}
+    <div class="row" style="margin: 30px 0 10px 0;padding-top:10px;border-top: 1px solid rgba(0, 0, 0, 0.12);">
+        <div class="col-12">
+            <div class="container" style="text-align: center">
+                &copy; {$config["appName"]} <a
+                        href="/staff">STAFF</a> {if $config["enable_analytics_code"] == 'true'}{include file='analytics.tpl'}{/if}
+            </div>
+        </div>
+    </div>
+{/if}
 <!-- js -->
 <script src="/extra/cdn.staticfile.org/jquery/2.2.1/jquery.min.js"></script>
 <script src="/extra/static.geetest.com/static/tools/gt.js"></script>

@@ -124,7 +124,7 @@
                                                     (1)下载<a href="/user/getpcconf?is_mu=0&is_ss=0">这个（普通端口）</a>或者<a
                                                             href="/user/getpcconf?is_mu=1&is_ss=0">这个（单端口多用户）</a>，右键小飞机
                                                     服务器 -- 从配置文件导入服务器，选择这个文件，<br>
-                                                    (2)点击<a class="copy-text" data-clipboard-text="{$ssr_url_all}">这里（普通端口）省的</a>或者<a
+                                                    (2)点击<a class="copy-text" data-clipboard-text="{$ssr_url_all}">这里（普通端口）</a>或者<a
                                                             class="copy-text" data-clipboard-text="{$ssr_url_all}">这个(单端口多用户）</a>，然后右键小飞机
                                                     -- 从剪贴板复制地址<br>
                                                     (3)(推荐)右键小飞机--服务器--SSR服务器订阅设置，将订阅地址设置为下面的地址，其他参数留空，确定之后再更新 SSR

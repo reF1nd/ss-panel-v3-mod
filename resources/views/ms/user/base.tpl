@@ -3,7 +3,7 @@
     <nav aria-hidden="true" class="menu menu-left nav-drawer nav-drawer-md" id="ui_menu" tabindex="-1">
         <div class="menu-scroll">
             <div class="menu-content">
-                <a class="menu-logo" href="/"><i class="icon icon-lg">person_pin_circle</i>&nbsp;用户面板</a>
+                <a class="menu-logo" href="/"><i class="icon icon-lg">person_pin_circle</i>&nbsp;用户中心</a>
                 <ul class="nav">
                     <li id="limenus">
                         <a class="waves-attach" data-toggle="collapse" aria-expanded="false" href="#ui_menu_me">我的</a>
@@ -123,13 +123,7 @@
                             </li>
                         </ul>
 
-                        {if $user->isAdmin()}
-                    <li>
-                        <a href="/admin">
-                            <i class="icon icon-lg">person_pin</i>&nbsp;管理面板
-                        </a>
-                    </li>
-                    {/if}
+
 
                     </li>
                 </ul>
