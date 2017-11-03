@@ -280,6 +280,7 @@
         .border-radius {
             border-radius: 5px;
         }
+
     </style>
     {*设置默认header*}
     {$header=true}
@@ -374,8 +375,8 @@
 <script src="/extra/cdn.staticfile.org/jquery/2.2.1/jquery.min.js"></script>
 <script src="/extra/static.geetest.com/static/tools/gt.js"></script>
 
-<script src="/theme/{$theme}/js/base.min.js"></script>
-<script src="/theme/{$theme}/js/project.min.js"></script>
+<script src="/theme/{$theme}/js/base.js"></script>
+<script src="/theme/{$theme}/js/project.js"></script>
 
 
 <!-- js -->
@@ -387,20 +388,30 @@
 
     $(function () {
 
-        $("#limenus li").each(function () {
 
-            var href = $(this).children('a').first().attr('href')
-            var ulp = $(this).parent();
-            var url = window.location.pathname;
-            if (href == url) {
-
-                $(ulp).removeClass('out')
-                $(ulp).addClass('in')
-                $(this).addClass('active')
+        $("#limenus > a").each(function () {
+            var isactive = false;
+            $(this).next('ul').children('li').each(function (index,ele) {
+                var href = $(ele).children('a').first().attr('href')
+                var ulp = $(ele).parent();
+                var url = window.location.pathname;
+                if (href == url) {
+                    $(ulp).removeClass('out')
+                    $(ulp).addClass('in')
+                    $(ele).addClass('active')
+                    isactive = true;
+                }
+            });
+            if(isactive){
+                $(this).attr('aria-expanded','true');
+            }else{
+                $(this).attr('aria-expanded','false');
             }
-
         })
 
+        $('#limenus > a').click(function () {
+            $(this).siblings("a[aria-expanded='true']").trigger('click');
+        });
     });
 </script>
 {block name='basescript'}{/block}

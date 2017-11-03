@@ -25,9 +25,10 @@
 
                                     <p>您每拉一位用户注册，当 TA 充值时您就会获得 TA 充值金额的 <code>{$config["code_payback"]} %</code>
                                         的提成。</p>
-                                    <p>当前您可以生成<code>{$user->invite_num}</code>个邀请码
+                                    <p>当前您可以生成<code>{$user->invite_num}</code>个邀请码</p>
+                                    <p>
                                         {if $user->invite_num }
-                                            <button id="invite" class="btn btn-flat">生成我的邀请码</button>
+                                            <button id="invite" class="btn btn-brand">生成我的邀请码</button>
                                         {/if}
                                     </p>
                                 </div>
