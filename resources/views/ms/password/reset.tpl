@@ -3,8 +3,8 @@
     <main class="content">
         <div class="container">
             <div class="row">
-                <div class="col-lg-4 col-lg-push-4 col-sm-6 col-sm-push-3">
-                    <section class="content-inner">
+                <div class="col-lg-12">
+                    <section class="max-width-500 div-center ms-section-clean">
                         <div class="card">
                             <div class="card-main">
                                 <div class="card-header">

@@ -1486,8 +1486,8 @@ template,
 }
 
 .row {
-  margin-right: -16px;
-  margin-left: -16px;
+  /*margin-right: -16px;*/
+  /*margin-left: -16px;*/
 }
 .row:after, .row:before {
   content: "";
@@ -1496,6 +1496,27 @@ template,
 }
 .row:after {
   clear: both;
+}
+.max-width-400{
+  max-width: 400px;
+}.max-width-450{
+   max-width: 450px;
+ }
+.max-width-500{
+  max-width: 500px;
+}
+.max-width-1000{
+  max-width: 1000px;
+}
+.div-center{
+  margin:0 auto;
+}
+.bg-white{
+  background: #fff;
+}
+.ms-section-clean{
+  background: #fff;
+  border-radius:5px;
 }
 
 /*!
