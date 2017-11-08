@@ -39,16 +39,14 @@
                                 </div>
                                 <div class="card-action">
                                     {if $user->isLogin}
-                                        <div class="card-action">
-                                            <div class="card-action-btn pull-left">
-                                                <a class="btn btn-flat waves-attach waves-light waves-effect"
-                                                   href="/user"><span class="icon">airline_seat_recline_normal</span>&nbsp;进入</a>
-                                            </div>
-                                            <div class="card-action-btn pull-left">
-                                                <a class="btn btn-flat waves-attach waves-light waves-effect"
-                                                   href="/user/logout"><span
-                                                            class="icon">exit_to_app</span>登出</a>
-                                            </div>
+                                        <div class="card-action-btn pull-left">
+                                            <a class="btn btn-flat waves-attach waves-light waves-effect"
+                                               href="/user"><span class="icon">airline_seat_recline_normal</span>&nbsp;进入</a>
+                                        </div>
+                                        <div class="card-action-btn pull-left">
+                                            <a class="btn btn-flat waves-attach waves-light waves-effect"
+                                               href="/user/logout"><span
+                                                        class="icon">exit_to_app</span>登出</a>
                                         </div>
                                     {else}
                                         <div class="card-action-btn pull-left">
@@ -62,13 +60,18 @@
                                         </div>
                                         <div class="card-action-btn pull-left">
                                             <a class="btn btn-flat waves-attach waves-light waves-effect"
-                                               href="/tos"><i class="icon icon-lg">text_format</i>&nbsp;TOS</a>
+                                               href="/tos"><i class="icon icon-lg">text_format</i>邀请码</a>
                                         </div>
-                                        <div class="card-action-btn pull-left">
-                                            <a class="btn btn-flat waves-attach waves-light waves-effect"
-                                               href="/staff"> &copy; {$config["appName"]} STAFF</a>
-                                        </div>
+
                                     {/if}
+                                    <div class="card-action-btn pull-left">
+                                        <a class="btn btn-flat waves-attach waves-light waves-effect"
+                                           href="/tos"><i class="icon icon-lg">text_format</i>&nbsp;TOS</a>
+                                    </div>
+                                    <div class="card-action-btn pull-left">
+                                        <a class="btn btn-flat waves-attach waves-light waves-effect"
+                                           href="/staff"> &copy; {$config["appName"]} STAFF</a>
+                                    </div>
 
                                 </div>
                             </div>
