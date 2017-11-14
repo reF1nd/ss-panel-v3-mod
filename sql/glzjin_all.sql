@@ -668,6 +668,8 @@ CREATE TABLE `telegram_session` ( `id` BIGINT NOT NULL AUTO_INCREMENT , `user_id
 
 ALTER TABLE `user` ADD `telegram_id` BIGINT NULL AFTER `is_multi_user`; 
 
+ALTER TABLE `user` ADD `t_notification` TINYINT(4) NOT NULL DEFAULT '1' AFTER `telegram_id`, ADD `traffic_notification` TINYINT(4) NOT NULL DEFAULT '1' AFTER `t_notification`, ADD `class_notification` TINYINT(4) NOT NULL DEFAULT '1' AFTER `traffic_notification`, ADD `expire_notification` TINYINT(4) NOT NULL DEFAULT '1' AFTER `class_notification`;
+
 CREATE TABLE IF NOT EXISTS `paylist` (
   `id` bigint(20) NOT NULL,
   `userid` bigint(20) NOT NULL,
