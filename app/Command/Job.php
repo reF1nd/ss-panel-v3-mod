@@ -759,26 +759,47 @@ class Job
                 }
             }
 
-            if (strtotime($user->expire_in) < time() && (((Config::get('enable_account_expire_reset')=='true' && strtotime($user->expire_in) < time()) ? $user->transfer_enable != Tools::toGB(Config::get('enable_account_expire_reset_traffic')) : true) && ((Config::get('enable_class_expire_reset')=='true' && ($user->class!=0 && strtotime($user->class_expire)<time() && strtotime($user->class_expire) > 1420041600))? $user->transfer_enable != Tools::toGB(Config::get('enable_class_expire_reset_traffic')) : true))) {
+            if ($user->expire_notification==1 && strtotime($user->expire_in) < time() && (((Config::get('enable_account_expire_reset')=='true' && strtotime($user->expire_in) < time()) ? $user->transfer_enable != Tools::toGB(Config::get('enable_account_expire_reset_traffic')) : true) && ((Config::get('enable_class_expire_reset')=='true' && ($user->class!=0 && strtotime($user->class_expire)<time() && strtotime($user->class_expire) > 1420041600))? $user->transfer_enable != Tools::toGB(Config::get('enable_class_expire_reset_traffic')) : true))) {
                 if (Config::get('enable_account_expire_reset')=='true') {
-                    $user->transfer_enable = Tools::toGB(Config::get('enable_account_expire_reset_traffic'));
-                    $user->u = 0;
-                    $user->d = 0;
-                    $user->last_day_t = 0;
+                    if (Config::get('enable_account_expire_delete')=='true') {
+                        $user->transfer_enable = Tools::toGB(Config::get('enable_account_expire_reset_traffic'));
+                        $user->u = 0;
+                        $user->d = 0;
+                        $user->last_day_t = 0;
 
-                    $subject = Config::get('appName')."-您的用户账户已经过期了";
-                    $to = $user->email;
-                    $text = "您好，系统发现您的账号已经过期了。流量已经被重置为".Config::get('enable_account_expire_reset_traffic').'GB' ;
-                    try {
-                        Mail::send($to, $subject, 'news/warn.tpl', [
-                            "user" => $user,"text" => $text
-                        ], [
-                        ]);
-                    } catch (Exception $e) {
-                        echo $e->getMessage();
+                        $subject = Config::get('appName')."-您的用户账户已经过期了";
+                        $to = $user->email;
+                        $text = "您好，系统发现您的账号已经过期了，流量已经被重置为".Config::get('enable_account_expire_reset_traffic').'GB'"。如果您在接下来的 ".Config::get('enable_account_expire_delete_days')." 天内没有续费，账号将被删除。" ;
+                        try {
+                            Mail::send($to, $subject, 'news/warn.tpl', [
+                                "user" => $user,"text" => $text
+                            ], [
+                            ]);
+                        } catch (Exception $e) {
+                            echo $e->getMessage();
+                        }
+
+                        $user->expire_notification = 0;
+                    } else {
+                        $user->transfer_enable = Tools::toGB(Config::get('enable_account_expire_reset_traffic'));
+                        $user->u = 0;
+                        $user->d = 0;
+                        $user->last_day_t = 0;
+
+                        $subject = Config::get('appName')."-您的用户账户已经过期了";
+                        $to = $user->email;
+                        $text = "您好，系统发现您的账号已经过期了。流量已经被重置为".Config::get('enable_account_expire_reset_traffic').'GB' ;
+                        try {
+                            Mail::send($to, $subject, 'news/warn.tpl', [
+                                "user" => $user,"text" => $text
+                            ], [
+                            ]);
+                        } catch (Exception $e) {
+                            echo $e->getMessage();
+                        }
+
+                        $user->expire_notification = 0;
                     }
-
-                    $user->expire_notification = 0;
                 }
             }
 
@@ -800,9 +821,9 @@ class Job
                     } catch (Exception $e) {
                         echo $e->getMessage();
                     }
-                }
 
-                $user->class=0;
+                    $user->class=0;
+                }
             }
 
             if ($user->class!=0 && strtotime($user->class_expire)<time() && strtotime($user->class_expire) > 1420041600) {
@@ -821,7 +842,7 @@ class Job
                 $user->class=0;
             }
 
-            if ($user->class!=0 && $user->class_notification==1 && strtotime($user->class_expire)-((int)Config::get('enable_class_expire_notification')*86400)<time() && strtotime($user->class_expire) > 1420041600) {
+            if ((int)Config::get('enable_class_expire_notification')!=0 && $user->class!=0 && $user->class_notification==1 && strtotime($user->class_expire)-((int)Config::get('enable_class_expire_notification')*86400)<time() && strtotime($user->class_expire) > 1420041600) {
                 $subject = Config::get('appName')."-您的用户等级即将到期";
                 $to = $user->email;
                 $text = "您好！您的用户等级将在 ".Config::get('enable_class_expire_notification')." 天内到期，请及时续费以免耽误您的正常使用。" ;
@@ -867,10 +888,10 @@ class Job
                 $user->expire_notification = 0;
             }
 
-            if ($user->t_notification==1 && ($user->u+$user->d) > ($user->transfer_enable)*0.95 && ($user->u+$user->d) < $user->transfer_enable) {
+            if ((int)Config::get('enable_user_traffic_notification')!=100 && $user->t_notification==1 && ($user->u+$user->d) > ($user->transfer_enable)*((int)Config::get('enable_user_traffic_notification')/100) && ($user->u+$user->d) < $user->transfer_enable) {
                 $subject = Config::get('appName')."-您的流量即将用完";
                 $to = $user->email;
-                $text = "您好！您的流量所剩不多，请及时购买流量包以免耽误您的正常使用。";
+                $text = "您好！您的流量已使用 ".Config::get('enable_user_traffic_notification')."%，请及时购买流量包以免耽误您的正常使用。";
                 try {
                     Mail::send($to, $subject, 'news/warn.tpl', [
                         "user" => $user,"text" => $text
