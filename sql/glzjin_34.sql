@@ -1,0 +1,1 @@
+ALTER TABLE `user` ADD `t_notification` TINYINT(4) NOT NULL DEFAULT '1' AFTER `telegram_id`, ADD `traffic_notification` TINYINT(4) NOT NULL DEFAULT '1' AFTER `t_notification`, ADD `class_notification` TINYINT(4) NOT NULL DEFAULT '1' AFTER `traffic_notification`, ADD `expire_notification` TINYINT(4) NOT NULL DEFAULT '1' AFTER `class_notification`;

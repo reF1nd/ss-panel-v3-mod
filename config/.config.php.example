@@ -201,6 +201,12 @@ $System_Config['reg_forbidden_ip']='127.0.0.0/8,::1/128';
 #注册时默认禁止访问端口列表，半角英文逗号分割，支持端口段
 $System_Config['reg_forbidden_port']='';
 
+#注册时默认的用户限速，单位为Mbps（0.00为不限制）
+$System_Config['reg_node_speedlimit']='0.00';
+
+#注册时默认的同时连接IP数限制（0为不限制）
+$System_Config['reg_node_connector']='0';
+
 #是否将登陆线程和IP绑定
 $System_Config['enable_login_bind_ip']='true';
 
@@ -211,6 +217,9 @@ $System_Config['enable_class_expire_reset']='true';
 
 #等级到期时重置为的流量值，GB
 $System_Config['enable_class_expire_reset_traffic']='0';
+
+#等级到期前几天会发邮件通知用户（最少1天）
+$System_Config['enable_class_expire_notification']='3';
 
 #账户到期时是否重置流量
 $System_Config['enable_account_expire_reset']='true';
