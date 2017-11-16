@@ -212,16 +212,13 @@ $System_Config['enable_login_bind_ip']='true';
 
 
 
-#当用户使用了百分之多少流量后会发邮件通知用户（单位%，100为不提前通知）
-$System_Config['enable_user_traffic_notification']='95';
-
 #等级到期时是否重置流量
 $System_Config['enable_class_expire_reset']='true';
 
 #等级到期时重置为的流量值，GB
 $System_Config['enable_class_expire_reset_traffic']='0';
 
-#等级到期前几天会发邮件通知用户（0为不提前通知）
+#等级到期前几天会发邮件通知用户（最少1天）
 $System_Config['enable_class_expire_notification']='3';
 
 #账户到期时是否重置流量
