@@ -19,6 +19,10 @@ git pull izhangxm  mstheme
 ```
 `izhangxm`是远程仓库地址，需要修改成你自己的地址
 
+**3、升级config**
+
+根据`.config.example`重新修改`.config`文件
+
 
 
 ### 由赵大的`0cc4229121484605829ecec760a410b269e2428c`升级
