@@ -341,7 +341,7 @@ class LinkController extends BaseController
                                         "method"=>$item['method'],
                                         "obfs"=>$item['obfs'],
                                         "obfsparam"=>$item['obfs_param'],
-                                        "plugin"=>"obfs-local",
+                                        "plugin"=>URL::getCsharpPlugin($item),
                                         "plugin_opts"=>URL::getCsharpObfs($item),
                                         "remarks_base64"=>base64_encode($item['remark']),
                                         "password"=>$item['passwd'],

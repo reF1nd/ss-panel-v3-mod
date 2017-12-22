@@ -299,6 +299,20 @@ class URL
         return $plugin;
     }
 
+    public static function getCsharpPlugin($item) {
+        $ss_obfs_list = Config::getSupportParam('ss_obfs');
+        $plugin = "";
+        if(in_array($item['obfs'], $ss_obfs_list)) {
+            if(strpos($item['obfs'], 'http') !== FALSE) {
+                $plugin .= "obfs-local";
+            } else {
+                $plugin .= "obfs-local";
+            }
+        }
+
+        return $plugin;
+    }
+
     public static function getCsharpObfs($item) {
         $ss_obfs_list = Config::getSupportParam('ss_obfs');
         $plugin = "";
