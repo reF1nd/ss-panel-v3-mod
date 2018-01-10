@@ -48,6 +48,14 @@
 										<input class="form-control" id="rate" name="rate" type="text" value="{$node->traffic_rate}">
 									</div>
 
+									<div class="form-group form-group-label">
+										<div class="checkbox switch">
+											<label for="disable_detect">
+												<input {if $node->disable_detect==1}checked{/if} class="access-hide" id="disable_detect" type="checkbox" name="disable_detect">
+												<span class="switch-toggle"></span>禁用审计
+											</label>
+										</div>
+									</div>
 
 									<div class="form-group form-group-label" hidden="hidden">
 										<div class="checkbox switch">
@@ -168,24 +176,9 @@
 						</div>
 					</form>
 					{include file='dialog.tpl'}
-
 			</div>
-
-
-
 		</div>
 	</main>
-
-
-
-
-
-
-
-
-
-
-
 {include file='admin/footer.tpl'}
 
 
@@ -209,34 +202,12 @@
 
 
 		submitHandler: function() {
-			if(document.getElementById('custom_method').checked)
-			{
-				var custom_method=1;
-			}
-			else
-			{
-				var custom_method=0;
-			}
-
-			if(document.getElementById('type').checked)
-			{
-				var type=1;
-			}
-			else
-			{
-				var type=0;
-			}
+			var custom_method = document.getElementById('custom_method').checked ? 1 : 0;
+			var type = document.getElementById('type').checked ? 1 : 0;
 			{/literal}
-			if(document.getElementById('custom_rss').checked)
-			{
-				var custom_rss=1;
-			}
-			else
-			{
-				var custom_rss=0;
-			}
 
-
+			var custom_rss = document.getElementById('custom_rss').checked ? 1 : 0;
+			var disable_detect = document.getElementById('disable_detect').checked ? 1 : 0;
 
             $.ajax({
 
@@ -247,21 +218,22 @@
                 data: {
                     name: $("#name").val(),
                     server: $("#server").val(),
-										node_ip: $("#node_ip").val(),
+					node_ip: $("#node_ip").val(),
                     method: $("#method").val(),
                     custom_method: custom_method,
                     rate: $("#rate").val(),
                     info: $("#info").val(),
                     type: type,
-										group: $("#group").val(),
+					group: $("#group").val(),
                     status: $("#status").val(),
                     sort: $("#sort").val(),
-										node_speedlimit: $("#node_speedlimit").val(),
-										class: $("#class").val(),
-										node_bandwidth_limit: $("#node_bandwidth_limit").val(),
-										bandwidthlimit_resetday: $("#bandwidthlimit_resetday").val(){/literal},
-										custom_rss: custom_rss,
-										mu_only: $("#mu_only").val()
+					node_speedlimit: $("#node_speedlimit").val(),
+					class: $("#class").val(),
+					node_bandwidth_limit: $("#node_bandwidth_limit").val(),
+					bandwidthlimit_resetday: $("#bandwidthlimit_resetday").val(){/literal},
+					custom_rss: custom_rss,
+					mu_only: $("#mu_only").val(),
+					disable_detect: disable_detect
 					{literal}
                 },
                 success: function (data) {

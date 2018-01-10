@@ -649,6 +649,8 @@ ALTER TABLE `user` ADD `is_multi_user` INT NOT NULL DEFAULT '0' AFTER `is_hide`;
 
 ALTER TABLE `ss_node` ADD `mu_only` INT NULL DEFAULT '0' AFTER `custom_rss`;
 
+ALTER TABLE `ss_node` ADD `disable_detect` TINYINT(4) NOT NULL DEFAULT '0' AFTER `mu_only`;
+
 CREATE TABLE IF NOT EXISTS `relay` (
   `id` bigint(20) NOT NULL,
   `user_id` bigint(20) NOT NULL,

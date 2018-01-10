@@ -25,6 +25,19 @@ class FuncController extends BaseController
 
     public function get_detect_logs($request, $response, $args)
     {
+        $params = $request->getQueryParams();
+        $node_id = $params['node_id'];
+        $node = Node::find($node_id);
+
+        if ($node != null) {
+            if ($node->disable_detect == 1) {
+                return $this->echoJson($response, [
+                    "ret" => 1,
+                    "data" => array()
+                ]);
+            }
+        }
+        
         $rules = DetectRule::all();
 
         $res = [

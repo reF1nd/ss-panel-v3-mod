@@ -41,6 +41,15 @@
                                         <input class="form-control" id="rate" type="text" name="rate">
                                     </div>
 
+                                    <div class="form-group form-group-label">
+                                        <div class="checkbox switch">
+                                            <label for="disable_detect">
+                                                <input  class="access-hide" id="disable_detect" type="checkbox" name="disable_detect">
+                                                <span class="switch-toggle"></span>禁用审计
+                                            </label>
+                                        </div>
+                                    </div>
+
                                     <div class="form-group form-group-label" hidden="hidden">
                                         <div class="checkbox switch">
                                             <label for="custom_method">
@@ -153,7 +162,6 @@
                             </div>
                         </div>
 
-
                         <div class="card">
                             <div class="card-main">
                                 <div class="card-inner">
@@ -174,9 +182,7 @@
                     </form>
                     {include file='dialog.tpl'}
 
-
             </div>
-
 
         </div>
     </main>
@@ -202,27 +208,11 @@
             },
 
             submitHandler: function () {
-                if (document.getElementById('custom_method').checked) {
-                    var custom_method = 1;
-                }
-                else {
-                    var custom_method = 0;
-                }
-
-                if (document.getElementById('type').checked) {
-                    var type = 1;
-                }
-                else {
-                    var type = 0;
-                }
+                var custom_method = document.getElementById('custom_method').checked ? 1 : 0;
+                var type = document.getElementById('type').checked ? 1 : 0;
                 {/literal}
-                if (document.getElementById('custom_rss').checked) {
-                    var custom_rss = 1;
-                }
-                else {
-                    var custom_rss = 0;
-                }
-
+                var custom_rss = document.getElementById('custom_rss').checked ? 1 : 0;
+                var disable_detect = document.getElementById('disable_detect').checked ? 1 : 0;
 
                 $.ajax({
                     type: "POST",
@@ -245,7 +235,8 @@
                         node_bandwidth_limit: $("#node_bandwidth_limit").val(),
                         bandwidthlimit_resetday: $("#bandwidthlimit_resetday").val(),
                         custom_rss: custom_rss,
-                        mu_only: $("#mu_only").val()
+                        mu_only: $("#mu_only").val(),
+                        disable_detect: disable_detect
                     },
                     success: function (data) {
                         if (data.ret) {
