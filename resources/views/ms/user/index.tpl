@@ -125,7 +125,7 @@
                                                             href="/user/getpcconf?is_mu=1&is_ss=0">这个（单端口多用户）</a>，右键小飞机
                                                     服务器 -- 从配置文件导入服务器，选择这个文件，<br>
                                                     (2)点击<a class="copy-text" data-clipboard-text="{$ssr_url_all}">这里（普通端口）</a>或者<a
-                                                            class="copy-text" data-clipboard-text="{$ssr_url_all}">这个(单端口多用户）</a>，然后右键小飞机
+                                                            class="copy-text" data-clipboard-text="{$ssr_url_all}">这里（单端口多用户）</a>，然后右键小飞机
                                                     -- 从剪贴板复制地址<br>
                                                     (3)(推荐)右键小飞机--服务器--SSR服务器订阅设置，将订阅地址设置为下面的地址，其他参数留空，确定之后再更新 SSR
                                                     服务器订阅。<br>
@@ -138,7 +138,7 @@
                                             </div>
                                             <div class="tab-pane fade" id="all_ssr_mac">
                                                 <p><a href="/ssr-download/ssr-mac.dmg">下载</a>，安装，然后下载<a
-                                                            href="/user/getpcconf?is_mu=0&is_ss=0">这个(普通端口)</a>或者<a
+                                                            href="/user/getpcconf?is_mu=0&is_ss=0">这个（普通端口）</a>或者<a
                                                             href="/user/getpcconf?is_mu=1&is_ss=0">这个（单端口多用户）</a>，运行程序，小飞机上右键
                                                     服务器列表 子菜单 的 “导入服务器配置文件...”
                                                     导入这个文件，然后选择一个合适的服务器，更新一下PAC，然后开启系统代理即可上网。</p>
@@ -273,9 +273,8 @@
                                                     Safari 中点击<a href="{$ss_url_all}">这个（普通端口）</a>或者<a
                                                             href="{$ss_url_all_mu}">这个（单端口多用户）</a>，然后点击确定，就可以批量添加节点。
                                                 </p>
-                                                <p>iOS 下载<a href="/link/{$ios_token}?is_ss=1">这个（普通端口）</a>或者<a
-                                                            href="/link/{$ios_token}?is_ss=1&is_mu=1">这个（单端口多用户）</a>，导入到
-                                                    Surge 中，然后就可以随意切换服务器上网了。</p>
+                                                <p>Surge 推荐使用可以自动更新的订阅规则：点击<a class="copy-text" data-clipboard-text="{$baseUrl}/link/{$ios_token}?is_ss=1&is_sub=1">这里（普通端口）</a>或者<a class="copy-text" data-clipboard-text="{$baseUrl}/link/{$ios_token}?is_ss=1&is_mu=1&is_sub=1">这里（单端口多用户）</a>，然后在 Surge 中选择“从URL下载配置”，将刚复制的地址粘贴导入，然后就可以随意切换服务器上网了。<br>
+                                                    也可以手动导入规则，下载<a href="/link/{$ios_token}?is_ss=1">这个（普通端口）</a>或者<a href="/link/{$ios_token}?is_ss=1&is_mu=1">这个（单端口多用户）</a>，导入到 Surge 。</p>
                                             </div>
                                             <div class="tab-pane fade" id="all_ss_android">
                                                 <p><a href="/ssr-download/ss-android.apk">下载</a>，再<a
