@@ -378,7 +378,7 @@ class LinkController extends BaseController
         }
 
         if ($is_sub == 1) {
-            $sub_info = '#!MANAGED-CONFIG '.Config::get('baseUrl').'/link/'.$ios_token.'?is_ss='.$is_ss.'&is_mu='.$is_mu."&is_sub=1\n";
+            $sub_info = '#!MANAGED-CONFIG '.Config::get('baseUrl').'/link/'.$ios_token.'?is_ss='.$is_ss.'&is_mu='.$is_mu."&is_sub=1 interval=86400 strict=true\n";
         }
 
         return ''.$sub_info.'//本去广告配置文件由@lhie1提供，感谢lhie1。更新于2018-01-19
