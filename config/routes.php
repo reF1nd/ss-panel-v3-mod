@@ -137,6 +137,8 @@ $app->group('/user', function () {
     $this->get('/logout', 'App\Controllers\UserController:logout');
     $this->get('/code', 'App\Controllers\UserController:code');
     $this->get('/alipay', 'App\Controllers\UserController:alipay');
+    $this->post('/code/f2fpay', 'App\Controllers\UserController:f2fpay');
+    $this->get('/code/f2fpay', 'App\Controllers\UserController:f2fpayget');
     $this->get('/code_check', 'App\Controllers\UserController:code_check');
     $this->post('/code', 'App\Controllers\UserController:codepost');
     $this->post('/gacheck', 'App\Controllers\UserController:GaCheck');
