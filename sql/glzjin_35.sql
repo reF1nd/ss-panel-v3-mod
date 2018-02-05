@@ -1,0 +1,1 @@
+ALTER TABLE `ss_node` ADD `disable_detect` TINYINT(4) NOT NULL DEFAULT '0' AFTER `mu_only`;
