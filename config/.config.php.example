@@ -212,6 +212,9 @@ $System_Config['enable_login_bind_ip']='true';
 
 
 
+#新注册用户是否默认发送每日邮件，1为默认发送，0为默认不发送
+$System_Config['reg_send_DailyMail']='0';
+
 #当用户使用了百分之多少流量后会发邮件通知用户（单位%，100为不提前通知）
 $System_Config['enable_user_traffic_notification']='95';
 

@@ -372,6 +372,7 @@ class AuthController extends BaseController
         $user->money=0;
         $user->class=0;
         $user->plan='A';
+        $user->sendDailyMail = Config::get('reg_send_DailyMail');
         $user->node_speedlimit = Config::get('reg_node_speedlimit');
         $user->node_connector = Config::get('reg_node_connector');
         $user->theme=Config::get('theme');
